@@ -4,7 +4,7 @@
             <apex:pageBlockButtons>
                 <apex:commandLink action="{!PrevPage}" value="Go Back!" />
                 <span> or </span>
-                <apex:outputLink value="http://google.com/search">CHAOS
+                <apex:outputLink value="http://google.com/search">Google It!
                     <apex:param name="q" value="{!name}" />
                 </apex:outputLink>
             </apex:pageBlockButtons>

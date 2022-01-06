@@ -52,6 +52,7 @@ public with sharing class DemoExtension {
     
     public Component.Apex.OutputText getDynamic() {
         Component.Apex.OutputText output = new Component.Apex.OutputText();
+        // output.childComponents().add(output2)
         if (value > 10) {
             output.value = 'Input value is greater than 10!';
         }

@@ -7,10 +7,11 @@ public class BasicExtension {
     
     public BasicExtension(ApexPages.StandardSetController controller) {
         pageSetController = controller;
-        if (pageSetController.getRecords().size() == 0) {
+        id recordId = ApexPages.currentPage().getParameters().get('Id');
+        if (recordId == null) {
             List<Account> accounts30 = [SELECT Name FROM Account LIMIT 30];
             pageSetController.setSelected(accounts30);
-            myAccount = (Account)pageSetController.getRecord();
+            myAccount = [SELECT Name FROM Account WHERE id =: recordId];
         }
         else {
             myAccount = [SELECT Name FROM Account LIMIT 1];

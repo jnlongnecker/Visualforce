@@ -17,10 +17,10 @@ public class WizardController {
         return Page.Wizard1;
     }
     
-    public PageReference Chaos() {
-        PageReference maxEntropy = new PageReference('http://www.google.com/search?q=' + name);
-        maxEntropy.setRedirect(true);
-        return maxEntropy;
+    public PageReference GoogleMethod() {
+        PageReference googlePage = new PageReference('http://www.google.com/search?q=' + name);
+        googlePage.setRedirect(true);
+        return googlePage;
     }
     
 }
