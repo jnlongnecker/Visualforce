@@ -73,7 +73,7 @@
                     <apex:outputText value="{!primValue}" />
 
                     <p>
-                        Primitives are passed by value, so unless we use the inputText tag, no actual data binding takes place here. We'll talk about
+                        Primitives are passed by value, so unless we use the inputText tag, no 2 way data binding takes place here. We'll talk about
                         how I'm getting the page to rerender later in the document.
                     </p>
                 </apex:outputPanel>
@@ -166,7 +166,8 @@
                 There are 2 other tools we can use: lazy loading and outputLink to change pages instead of commandLink or commandButton.
                 So our performance boosting tools are: actionRegion, outputLink, and lazy loading.
                 <br /> Our view state tools are the transient keyword, conservative use of form and inputField tags, and ensuring
-                we only use what we need.
+                we only use what we need. As a best practice in Visualforce, we should use these tools to reduce the size
+                of the view state and boost performance in every possible place.
             </p>
         </apex:pageBlock>
         <!-- End View State Block -->

@@ -69,7 +69,7 @@ public with sharing class DemoExtension {
     private String SelectRandomGuitarist() {
         if (randomValues == null) {
             randomValues = new List<String>{'John Petrucci', 'Tim Henson', 'Tosin Abasi', 'Steve Vai', 'Stevie Ray Vaughn', 'B.B. King', 'Jimi Hendrix', 'Jeff Loomis'};
-                }
+        }
         return randomValues[Integer.valueOf(Math.random() * randomValues.size())];
     }
 

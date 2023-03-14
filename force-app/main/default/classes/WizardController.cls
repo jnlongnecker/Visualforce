@@ -19,6 +19,8 @@ public class WizardController {
     
     public PageReference GoogleMethod() {
         PageReference googlePage = new PageReference('http://www.google.com/search?q=' + name);
+        // We can access parameters using ApexPages.currentPage().getParameters()
+        // This returns a map of keys to values
         googlePage.setRedirect(true);
         return googlePage;
     }

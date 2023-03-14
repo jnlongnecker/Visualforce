@@ -1,12 +1,23 @@
+<!--
+    Standard Component Reference:
+    https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_compref_insert.htm
+-->
+
 <!-- We use the page tag to define our VF Page. Additional attributes: controller, renderAs -->
 <apex:page standardController="Account" recordSetVar="myAccounts" extensions="BasicExtension">
+    <!-- 
+        Set controllers can be used with these objects:
+        Account - Asset - Campaign - Case - Contact - Contract - Idea - Lead
+        Order - Product2 - Solution - User - Custom Object - Opportunity
+     -->
 
     <!-- We can reference Static Resources using the $Resources global variable -->
     <apex:stylesheet value="{!$Resource.DemoStyles}" />
+    <!-- The funky syntax is expression syntax -->
 
     <apex:outputText value="{!Custom}" />
 
-    <!-- The form tag is required for interactions with the database -->
+    <!-- The form tag is required for any input -->
     <apex:form>
 
         <apex:pageBlock>

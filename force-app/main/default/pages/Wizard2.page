@@ -5,6 +5,7 @@
                 <apex:commandLink action="{!PrevPage}" value="Go Back!" />
                 <span> or </span>
                 <apex:outputLink value="http://google.com/search">Google It!
+                    <!-- Must be a child of a component that can redirect to a new page -->
                     <apex:param name="q" value="{!name}" />
                 </apex:outputLink>
             </apex:pageBlockButtons>

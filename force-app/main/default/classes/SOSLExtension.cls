@@ -3,7 +3,7 @@ public class SOSLExtension {
     private List<List<SObject>> queryResult;
     
     public SOSLExtension(ApexPages.StandardSetController sController) {
-        queryResult = [FIND '*0*0*' IN Phone FIELDS RETURNING Account(name, FORMAT(SLAExpirationDate__c)), 
+        queryResult = [FIND '*0*0*' IN Phone FIELDS RETURNING Account(name, description), 
                        Contact(firstName, lastName, accountID ORDER BY lastName)];
         /*
          * SOSL Information:

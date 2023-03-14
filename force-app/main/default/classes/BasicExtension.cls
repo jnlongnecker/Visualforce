@@ -8,7 +8,8 @@ public class BasicExtension {
     public BasicExtension(ApexPages.StandardSetController controller) {
         pageSetController = controller;
         id recordId = ApexPages.currentPage().getParameters().get('Id');
-        if (recordId == null) {
+        System.debug(recordId);
+        if (recordId != null) {
             List<Account> accounts30 = [SELECT Name FROM Account LIMIT 30];
             pageSetController.setSelected(accounts30);
             myAccount = [SELECT Name FROM Account WHERE id =: recordId];
@@ -31,6 +32,6 @@ public class BasicExtension {
     public String getCustom() {
         // Do custom stuff
 
-        return 'The current Acccount is: ' + myAccount.Name + '!';
+        return 'The current Account is: ' + myAccount.Name + '!';
     }
 }
