@@ -1,49 +1,59 @@
 <!--
-    Standard Component Reference:
-    https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_compref_insert.htm
+	Standard Component Reference:
+	https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_compref_insert.htm
 -->
 
-<!-- We use the page tag to define our VF Page. Additional attributes: controller, renderAs -->
-<apex:page standardController="Account" recordSetVar="myAccounts" extensions="BasicExtension">
-    <!-- 
-        Set controllers can be used with these objects:
-        Account - Asset - Campaign - Case - Contact - Contract - Idea - Lead
-        Order - Product2 - Solution - User - Custom Object - Opportunity
-     -->
-
-    <!-- We can reference Static Resources using the $Resources global variable -->
-    <apex:stylesheet value="{!$Resource.DemoStyles}" />
-    <!-- The funky syntax is expression syntax -->
-
-    <apex:outputText value="{!Custom}" />
-
-    <!-- The form tag is required for any input -->
-    <apex:form>
-
-        <apex:pageBlock>
-
-            <!-- We can use the pageBlockButtons to place buttons at the start and end of the page block -->
-            <apex:pageBlockButtons>
-                <apex:commandButton action="{!Previous}" value="Previous" />
-                <apex:commandButton action="{!Next}" value="Next" />
+<!--
+	Using the recordSetVar attribute changes a controller from a standard controller to a standard set controller
+	A standard set controller retrieves all records of the sObject type
+	Standard set controller retrieves records in pages of 20
+-->
+<!-- renderAs="pdf" : Renders the page as a pdf document -->
+<apex:page standardController="Account" recordSetVar="allAccounts" extensions="BasicExtension"  >
+    <!--
+		Standard controller pulls in information from parent up to 5 relationships away
+		Standard controller pulls in information from child up to 3 relationships away
+	-->
+    
+    <apex:stylesheet value="{!$Resource.VisualforceStyles}" />
+    
+    <apex:outputText value="{!customValue}"></apex:outputText>
+    <apex:form >
+        <apex:pageBlock title="All Accounts">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!Previous}" value="Previous 20" />
+                <apex:commandButton action="{!Next}" value="Next 20" />
             </apex:pageBlockButtons>
-
-            <apex:pageBlockTable value="{!myAccounts}" var="acc">
-                <apex:column value="{!acc.name}" />
-            </apex:pageBlockTable>
-
+            
+            <apex:pageBlockSection title="Table Comparison" columns="2" >
+            	<!-- We pass in a list to the pageBlockTable using Expression Syntax -->
+                <apex:pageBlockTable value="{!allAccounts}" var="account">
+                    <apex:column value="{!account.Name}" />
+                    <apex:column value="{!account.AnnualRevenue}" />
+                    <apex:column value="{!account.Rating}" />
+                </apex:pageBlockTable>
+                <apex:pageBlockTable value="{!opps}" var="opportunity">
+                	<apex:column value="{!opportunity.Account.Name}" />
+                    <apex:column value="{!opportunity.Amount}" />
+                    <apex:column value="{!opportunity.StageName}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Logo vs Lorem" columns="2">
+                <!-- Access a static resource using the $Resource global variable -->
+    			<apex:image url="{!$Resource.Logo}" alt="Official Salesforce Logo" styleClass="logo-img" />
+                <!-- Access a custom label using the $Label global variable -->
+    			<apex:outputText value="{!$Label.LoremIpsum}" />
+            </apex:pageBlockSection>
         </apex:pageBlock>
-
-        <apex:pageBlock>
-
-            <!-- We can reference Custom Labels using the $Label global variable -->
-            <apex:outputText value="{!$Label.LoremIpsum}" />
-        </apex:pageBlock>
-
-        <!-- The detail tag can show a record detail page -->
-        <apex:detail />
-
     </apex:form>
-
-    <apex:image id="logo" url="{!$Resource.SalesforceLogo}" alt="Salesforce Logo" />
+    
+        <apex:dataTable value="{!allAccounts}" var="account">
+                    <apex:column value="{!account.Name}" />
+                    <apex:column value="{!account.AnnualRevenue}" />
+                    <apex:column value="{!account.Rating}" />
+                </apex:dataTable>
+    <apex:dataList value="{!allAccounts}" var="account">
+        <apex:outputField value="{!account.Name}" />
+    </apex:dataList>
+    
 </apex:page>

@@ -2,27 +2,7 @@
     "packageDirectories": [
         {
             "path": "force-app",
-            "default": false
-        },
-        {
-            "path": "MyFirstPackage",
-            "package": "MyApp",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT",
             "default": true
-        },
-        {
-            "path": "MySecondPackage",
-            "package": "App2",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT",
-            "default": false,
-            "dependencies": [
-              {
-                "package": "MyApp",
-                "versionNumber": "0.1.0.2"
-              }
-            ]
         }
     ],
     "name": "Visualforce",
