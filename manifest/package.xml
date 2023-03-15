@@ -2,11 +2,14 @@
 <!-- Remember, retrieve with sfdx force:source:retrieve -x ./manifest/package.xml -->
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>BasicExtension</member>
+        <members>WizardController</member>
+        <members>DoubleStackController</member>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>VFBasics</members>
+        <members>WizardAcc</members>
+        <members>WizardOpp</members>
+        <members>DoubleStack</members>
         <name>ApexPage</name>
     </types>
     <types>

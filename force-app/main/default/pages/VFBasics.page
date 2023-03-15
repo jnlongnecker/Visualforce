@@ -32,6 +32,7 @@
                     <apex:column value="{!account.AnnualRevenue}" />
                     <apex:column value="{!account.Rating}" />
                 </apex:pageBlockTable>
+                <!-- Tables (pageBlockTable/dataTable) can show up to 10,000 records -->
                 <apex:pageBlockTable value="{!opps}" var="opportunity">
                 	<apex:column value="{!opportunity.Account.Name}" />
                     <apex:column value="{!opportunity.Amount}" />

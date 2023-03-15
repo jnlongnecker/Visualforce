@@ -1,0 +1,19 @@
+<apex:page controller="WizardController">
+    <apex:form >
+    	<apex:pageBlock title="Select an Account" tabStyle="Account">
+            <apex:pageBlockButtons >
+            	<apex:commandButton action="{!oppSelectPage}" value="Continue" />
+            </apex:pageBlockButtons>
+            <p>
+                Desired Name:
+            </p>
+            <apex:inputText value="{!desiredName}" />
+            <p>
+                Desired Account:
+            </p>
+            <apex:selectList value="{!chosenAcc}" size="1">
+                <apex:selectOptions value="{!accountChoices}" />
+            </apex:selectList>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
