@@ -139,9 +139,10 @@ public without sharing class SecurityInApex {
          * 		- RecordId : Takes the record id of the record to be shared
          * 			- This is different for every Share object
          * 			- EX: AccountId for the AccountShare object
-         * 		- RecordAccessLevel : Takes one of 3 values as a string: Read, Edit, or All
+         * 		- RecordAccessLevel : Takes one of 2 values as a string: Read or Edit
          * 			- This is different for every Share object
          * 			- EX: AccountAccessLevel for the AccountShare object
+         *          - You may see in queries the "All" access. This refers to Full access, but we cannot set this
          * 		- UserOrGroupId : Takes the Id of a User or Public Group to share with
          * 			- This is the same for every Share object
          * 		- RowCause : The reason for the Share
@@ -159,6 +160,7 @@ public without sharing class SecurityInApex {
             newShare.AccountAccessLevel = 'Read';
             newShare.AccountId = acc.Id;
             newShare.UserOrGroupId = devon.Id;
+            // Necessary because access to opportunities is determined by access to accounts
             newShare.OpportunityAccessLevel = 'Read';
             
             newShares.add(newShare);
