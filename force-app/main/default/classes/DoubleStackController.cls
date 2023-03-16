@@ -1,4 +1,4 @@
-public class DoubleStackController {
+public with sharing class DoubleStackController {
 	
     private String name;
     private Opportunity opp;
@@ -73,6 +73,10 @@ public class DoubleStackController {
         }
         
         public Object getAccValue() {
+            DescribeFieldResult r = Schema.sObjectType.Account.fields.getMap().get(accFieldName).getDescribe();
+            if (!r.isAccessible()) {
+                return '[REDACTED]';
+            }
             return acc.get(accFieldName);
         }
     }

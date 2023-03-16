@@ -4,6 +4,7 @@
     <types>
         <members>WizardController</member>
         <members>DoubleStackController</member>
+        <members>SecurityInApex</member>
         <name>ApexClass</name>
     </types>
     <types>

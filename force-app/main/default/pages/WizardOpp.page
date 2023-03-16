@@ -1,9 +1,9 @@
 <apex:page controller="WizardController">
     <apex:form >
-    	<apex:pageBlock title="Select an Opportunity" tabStyle="Opportunity">
+        <apex:pageBlock title="Select an Opportunity" tabStyle="Opportunity">
             <apex:pageBlockButtons >
-            	<apex:commandButton action="{!accSelectPage}" value="Back" />
-            	<apex:commandButton action="{!finish}" value="Finish" />
+                <apex:commandButton action="{!accSelectPage}" value="Back" />
+                <apex:commandButton action="{!finish}" value="Finish" />
             </apex:pageBlockButtons>
             <apex:selectList value="{!chosenOpp}" size="1">
                 <apex:selectOptions value="{!opportunityChoices}" />

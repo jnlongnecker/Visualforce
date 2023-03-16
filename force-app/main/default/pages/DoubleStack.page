@@ -3,7 +3,7 @@
     <apex:form >
     <apex:pageBlock title="{!greeting}">
         <apex:pageBlockButtons >
-        	<apex:commandButton action="{!save}" value="Save" />
+            <apex:commandButton action="{!save}" value="Save" />
         </apex:pageBlockButtons>
         
         <apex:pageBlockSection title="Side by Side" columns="2">
@@ -18,7 +18,7 @@
                 <apex:column headerValue="Name">
                     <!-- If inlineEditSupport is used, this is reduced to 1,000 -->
                     <apex:outputField value="{!opp.Name}" >
-                    	<apex:inlineEditSupport />
+                        <apex:inlineEditSupport />
                     </apex:outputField>
                 </apex:column>
                 
@@ -26,14 +26,14 @@
                 <apex:column value="{!opp.Amount}" />
                 <!-- inlineEditSupport doesn't do any DML, so we need to persist these changes when we're done! -->
                 
-            	<apex:column headerValue="Stage">
+                <apex:column headerValue="Stage">
                     <apex:outputField value="{!opp.StageName}" >
-                    	<apex:inlineEditSupport />
+                        <apex:inlineEditSupport />
                     </apex:outputField>
                 </apex:column>
             </apex:pageBlockTable>
         </apex:pageBlockSection>
-    	
+        
     </apex:pageBlock>
     </apex:form>
 </apex:page>

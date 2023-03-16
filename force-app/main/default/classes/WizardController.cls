@@ -1,4 +1,4 @@
-public class WizardController {
+public with sharing class WizardController {
 
     Map<String, Account> nameToAccount;
     Map<String, Opportunity> nameToOpportunity;

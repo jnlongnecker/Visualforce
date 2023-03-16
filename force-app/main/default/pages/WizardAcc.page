@@ -1,8 +1,8 @@
 <apex:page controller="WizardController">
     <apex:form >
-    	<apex:pageBlock title="Select an Account" tabStyle="Account">
+        <apex:pageBlock title="Select an Account" tabStyle="Account">
             <apex:pageBlockButtons >
-            	<apex:commandButton action="{!oppSelectPage}" value="Continue" />
+                <apex:commandButton action="{!oppSelectPage}" value="Continue" />
             </apex:pageBlockButtons>
             <p>
                 Desired Name:
