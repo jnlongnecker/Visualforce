@@ -2,12 +2,14 @@
 <!-- Remember, retrieve with sfdx force:source:retrieve -x ./manifest/package.xml -->
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>WizardController</member>
-        <members>DoubleStackController</member>
-        <members>SecurityInApex</member>
+        <members>EditTopAccountController</members>
+        <members>WizardController</members>
+        <members>DoubleStackController</members>
+        <members>SecurityInApex</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>EditTopAccount</members>
         <members>WizardAcc</members>
         <members>WizardOpp</members>
         <members>DoubleStack</members>

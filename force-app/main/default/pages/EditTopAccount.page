@@ -1,0 +1,47 @@
+<apex:page controller="EditTopAccountController">
+    <apex:form >
+        <apex:pageBlock title="Customize the Top Account" tabStyle="Account">
+            <apex:pageBlockButtons >
+                <apex:outputLink target="_blank" value="{!accountLink}" >View Account</apex:outputLink>
+                <apex:commandButton value="Save Record" action="{!save}" rendered="{!canUpdate}" />
+                <apex:commandButton value="Google It" action="{!google}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection collapsible="false" columns="2">
+                <apex:outputPanel >
+                    <apex:actionRegion >
+                        <apex:pageBlockSection title="Edit Information" columns="2">
+                            <apex:inputField value="{!acc.Name}" >
+                                <apex:actionSupport event="onchange" reRender="preview,messages,change" action="{!runValidation}" />
+                            </apex:inputField>
+                            <apex:inputField value="{!acc.AnnualRevenue}" >
+                                <apex:actionSupport event="onchange" reRender="preview,messages,change" action="{!runValidation}" />
+                            </apex:inputField>
+                            <apex:inputField value="{!acc.NumberOfEmployees}" >
+                                <apex:actionSupport event="onchange" reRender="preview,messages,change" action="{!runValidation}" />
+                            </apex:inputField>
+                            <apex:inputField value="{!acc.Rating}" >
+                                <apex:actionSupport event="onchange" reRender="preview,messages,change" action="{!runValidation}" />
+                            </apex:inputField>
+                        </apex:pageBlockSection>
+                    </apex:actionRegion>
+                    <!-- Automatically displays error messages and messages we add manually to the page -->
+                    <apex:pageMessages id="messages"></apex:pageMessages>
+                    <apex:pageBlockSection id="preview" title="Preview" columns="1">
+                        <apex:outputField value="{!acc.Name}" />
+                        <apex:outputField value="{!acc.AnnualRevenue}" />
+                        <apex:outputField value="{!acc.NumberOfEmployees}" />
+                        <apex:outputField value="{!acc.Rating}" />
+                    </apex:pageBlockSection>
+                    <apex:outputPanel id="change">
+                        <p>
+                            Page Last Updated:
+                        </p>
+                        <apex:outputText value="{!lastChange}"></apex:outputText>
+                        <apex:dynamicComponent componentValue="{!changeList}" ></apex:dynamicComponent>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                <apex:iframe src="{!iFrameLink}" width="100%" scrolling="true" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

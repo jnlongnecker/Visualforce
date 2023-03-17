@@ -2,17 +2,17 @@
 public class WizardTest {
 	
     @isTest
-    public static void TP_NextPage() {
+    public static void TP_oppSelectPage() {
         
         // Use Test.setCurrentPage() to work with pages within a test environment
-        Test.setCurrentPage(Page.Wizard1);
+        Test.setCurrentPage(Page.WizardAcc);
         WizardController wiz = new WizardController();
         
-        // Set our page to the next page to ensure the NextPage method gives the right page reference.
-        Test.setCurrentPageReference(wiz.NextPage());
+        // Set our page to the next page to ensure the oppSelectPage method gives the right page reference.
+        Test.setCurrentPageReference(wiz.oppSelectPage());
         
         // Ensure the url's are equal to make sure the same page is being displayed.
-        System.assertEquals(Page.Wizard2.getUrl(), ApexPages.currentPage().getUrl());
+        System.assertEquals(Page.WizardOpp.getUrl(), ApexPages.currentPage().getUrl());
     }
     
     @isTest
@@ -33,6 +33,7 @@ public class WizardTest {
         
         // Create our extension and make sure the account gets set correctly
         DemoExtension extension = new DemoExtension(sController);
+        
         System.assertEquals(extension.myAccount.id, testAccount.id);
     }
 }
